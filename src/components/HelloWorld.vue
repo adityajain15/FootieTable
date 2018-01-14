@@ -1,7 +1,7 @@
 <template>
   <svg xmlns="http://www.w3.org/2000/svg" height="100%" :width="width">
     <template v-for="(node,index) of table.entries">
-      <image class="clubs" :href=getBadgeUrl(node.team.name) :x="getX(node.overall.points)" :y="getY(node.team.name)" :height="15" :width="15" :key="node.team.id" :name="node.team.name"/>
+      <image class="clubs" :href=getBadgeUrl(node.team.club.name) :x="getX(node.overall.points)" :y="getY(node.team.club.name)" :height="15" :width="15" :key="node.team.id" :name="node.team.club.name"/>
     </template>
   </svg>
 </template>
@@ -45,7 +45,7 @@ export default {
       let ties = {}
       for(let i=0;i<theTable.entries.length;i++){
         //debugger
-        ties[`${theTable.entries[i].team.name}`] = 20*this.getTiePosition(theTable.entries[i],i)
+        ties[`${theTable.entries[i].team.club.name}`] = 20*this.getTiePosition(theTable.entries[i],i)
       }
       return ties 
     },
@@ -79,13 +79,13 @@ export default {
       
       function update(){
         for(let i=0;i<newVal.entries.length;i++){
-          this.table.entries[i].overall.points = fromOldValue[this.table.entries[i].team.name]
+          this.table.entries[i].overall.points = fromOldValue[this.table.entries[i].team.club.name]
         }
       }
 
       for(let i=0;i<newVal.entries.length;i++){
-        fromOldValue[`${oldVal.entries[i].team.name}`] = oldVal.entries[i].overall.points
-        toNewValue[`${newVal.entries[i].team.name}`] = newVal.entries[i].overall.points 
+        fromOldValue[`${oldVal.entries[i].team.club.name}`] = oldVal.entries[i].overall.points
+        toNewValue[`${newVal.entries[i].team.club.name}`] = newVal.entries[i].overall.points 
       }
       
       TweenLite.to(fromOldValue, 1, toNewValue)

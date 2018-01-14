@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <!--
     <SeasonTable max="22"/>
     <SeasonTable season="2016"/>
     <SeasonTable season="2015"/>
@@ -20,7 +19,7 @@
     <SeasonTable season="2003" max="36"/>
     <SeasonTable season="2002"/>
     <SeasonTable season="2001"/>
-    <SeasonTable season="2000"/>-->
+    <SeasonTable season="2000"/>
     <SeasonTable season="1999" max="37"/>
     <SeasonTable season="1998" max="40"/>
     <SeasonTable season="1997"/>
