@@ -16,41 +16,41 @@ export default {
   components: {
     HelloWorld
   },
-  data: function(){
+  data: function () {
     return {
       selected: 1,
       table: ''
     }
   },
-  props:{
-    season:{
+  props: {
+    season: {
       default: 2017
     },
-    max:{
+    max: {
       default: 39
     }
   },
   computed: {
-    allWeeks: function(){
+    allWeeks: function () {
       const options = []
-      for(let i=1;i<this.max;i++){
+      for (let i = 1; i < this.max; i++) {
         options.push({text: `Week ${i}`, value: i})
       }
       return options
     }
   },
-  created: function(){
+  created: function () {
     this.getData()
   },
-  watch:{
-    selected: function(){
+  watch: {
+    selected: function () {
       this.getData()
     }
   },
   methods: {
-    getData: function(){
+    getData: function () {
       var that = this
-      d3.json(`/src/assets/tables/${that.season}/week${that.selected}.json`,function(val){
+      d3.json(`/src/assets/tables/${that.season}/week${that.selected}.json`, function (val) {
         that.table = val.tables[0]
       })
     }
