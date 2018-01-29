@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <SeasonTable max="22"/><!--
+    <SeasonTable max="24"/>
     <SeasonTable season="2016"/>
     <SeasonTable season="2015"/>
     <SeasonTable season="2014"/>
@@ -10,7 +10,7 @@
     <SeasonTable season="2011" max="37"/>
 
     <SeasonTable season="2010" max="37"/>
-    <SeasonTable season="2009"/>
+    <SeasonTable season="2009" max="40"/>
     <SeasonTable season="2008" max="39"/>
     <SeasonTable season="2007" max="39"/>
     <SeasonTable season="2006" max="39"/>
@@ -27,7 +27,7 @@
     <SeasonTable season="1995"/>
     <SeasonTable season="1994" max="37"/>
     <SeasonTable season="1993" max="40"/>
-    <SeasonTable season="1992" max="38"/>-->
+    <SeasonTable season="1992" max="38"/>
   </div>
 </template>
 

@@ -1,20 +1,21 @@
 <template>
   <div class="seasonTable">
+    <span>{{ this.season }}</span>
     <select v-model="selected">
       <option v-for="node of allWeeks" :value="node.value">{{ node.text }}</option>
     </select>
-    <HelloWorld :table="table" width="100%" />
+    <SeasonSVG :table="table" width="100%" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './HelloWorld'
+import SeasonSVG from './SeasonSVG'
 import * as d3 from 'd3'
 
 export default {
   name: 'SeasonTable',
   components: {
-    HelloWorld
+    SeasonSVG
   },
   data: function () {
     return {
@@ -27,13 +28,13 @@ export default {
       default: 2017
     },
     max: {
-      default: 39
+      default: 38
     }
   },
   computed: {
     allWeeks: function () {
       const options = []
-      for (let i = 1; i < this.max; i++) {
+      for (let i = 1; i <= this.max; i++) {
         options.push({text: `Week ${i}`, value: i})
       }
       return options
@@ -49,8 +50,9 @@ export default {
   },
   methods: {
     getData: function () {
-      var that = this
-      d3.json(`/src/assets/tables/${that.season}/week${that.selected}.json`, function (val) {
+      let that = this
+      // /src/assets/tables/${that.season}/week${that.selected}
+      d3.json(`./static/tables/${that.season}/week${that.selected}.json`, function (val) {
         that.table = val.tables[0]
       })
     }

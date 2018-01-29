@@ -2,7 +2,7 @@
 <template>
   <svg xmlns="http://www.w3.org/2000/svg" height="100%" :width="width">
     <template v-for="(node,index) of table.entries">
-      <image class="clubs" :href=getBadgeUrl(node.team.club.name) :x="getX(node.overall.points)" :y="getY(node.team.club.name)" :height="15" :width="15" :key="node.team.id" :name="node.team.club.name"/>
+      <image class="clubs" :href=getBadgeUrl(node.team.club.name) :x="getX(node.overall.points)" :y="getY(node.team.club.name)" :height="20" :width="20" :key="node.team.id" :name="node.team.club.name"/>
     </template>
   </svg>
 </template>
@@ -12,7 +12,7 @@ import {scaleLinear} from 'd3-scale'
 import {TweenLite} from 'gsap'
 
 export default {
-  name: 'HelloWorld',
+  name: 'SeasonSVG',
   props: {
     table: {
       default: 3
@@ -62,7 +62,7 @@ export default {
       this.xScale = scaleLinear().domain([0, 114]).range([this.margin + 0, this.$el.clientWidth - this.margin])
     },
     getBadgeUrl: function (name) {
-      return `/src/assets/badges/${name}.png`
+      return `./static/badges/${name}.png`
     }
   },
   watch: {
